@@ -7,7 +7,7 @@ import { RoomType } from '../types/Rooms'
 
 // import socialRoutes from "@colyseus/social/express"
 
-import { SkyOffice } from './rooms/SkyOffice'
+import { NounsVerse } from './rooms/NounsVerse'
 
 const port = Number(process.env.PORT || 2567)
 const app = express()
@@ -23,13 +23,13 @@ const gameServer = new Server({
 
 // register room handlers
 gameServer.define(RoomType.LOBBY, LobbyRoom)
-gameServer.define(RoomType.PUBLIC, SkyOffice, {
+gameServer.define(RoomType.PUBLIC, NounsVerse, {
   name: 'Public Lobby',
   description: 'For making friends and familiarizing yourself with the controls',
   password: null,
   autoDispose: false,
 })
-gameServer.define(RoomType.CUSTOM, SkyOffice).enableRealtimeListing()
+gameServer.define(RoomType.CUSTOM, NounsVerse).enableRealtimeListing()
 
 /**
  * Register @colyseus/social routes

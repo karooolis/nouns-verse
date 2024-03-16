@@ -181,7 +181,7 @@ export default function RoomSelectionDialog() {
             </CustomRoomWrapper>
           ) : (
             <>
-              <Title>Welcome to SkyOffice</Title>
+              <Title>Welcome to NounsVerse</Title>
               <Content>
                 <img src={logo} alt="logo" />
                 

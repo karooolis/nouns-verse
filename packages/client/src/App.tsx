@@ -9,7 +9,6 @@ import ComputerDialog from "./components/ComputerDialog";
 import WhiteboardDialog from "./components/WhiteboardDialog";
 import VideoConnectionDialog from "./components/VideoConnectionDialog";
 import Chat from "./components/Chat";
-import HelperButtonGroup from "./components/HelperButtonGroup";
 import MobileVirtualJoystick from "./components/MobileVirtualJoystick";
 import { useComponentValue } from "@latticexyz/react";
 import { singletonEntity } from "@latticexyz/store-sync/recs";
@@ -92,7 +91,6 @@ function App() {
 
       {ui}
       {/* Render HelperButtonGroup if no dialogs are opened. */}
-      {/* {!computerDialogOpen && !whiteboardDialogOpen && <HelperButtonGroup />} */}
     </Backdrop>
   );
 }
