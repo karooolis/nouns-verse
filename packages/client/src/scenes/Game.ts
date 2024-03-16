@@ -82,8 +82,14 @@ export default class Game extends Phaser.Scene {
     groundLayer.setCollisionByProperty({ collides: true })
 
     // debugDraw(groundLayer, this)
+    console.log(this);
+    console.log(this.myPlayer);
 
-    this.myPlayer = this.add.myPlayer(705, 500, 'nouns', this.network.mySessionId)
+    // TODO: add properly
+    // console.log(window.selectedPlayerName);
+
+    // this.myPlayer = this.add.myPlayer(705, 500, 'nouns', this.network.mySessionId)
+    this.myPlayer = this.add.myPlayer(705, 500, 'adam', this.network.mySessionId)
     this.playerSelector = new PlayerSelector(this, 0, 0, 16, 16)
 
     // import chair objects from Tiled map to Phaser

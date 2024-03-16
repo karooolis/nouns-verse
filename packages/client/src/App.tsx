@@ -112,7 +112,7 @@ function App() {
     <Backdrop>
       {ui}
       {/* Render HelperButtonGroup if no dialogs are opened. */}
-      {!computerDialogOpen && !whiteboardDialogOpen && <HelperButtonGroup />}
+      {/* {!computerDialogOpen && !whiteboardDialogOpen && <HelperButtonGroup />} */}
     </Backdrop>
   )
 }

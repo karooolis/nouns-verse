@@ -68,7 +68,7 @@ export default class OtherPlayer extends Player {
 
       case 'anim':
         if (typeof value === 'string') {
-          this.anims.play(value, true)
+          // this.anims.play(value, true)
         }
         break
 

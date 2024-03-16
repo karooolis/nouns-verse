@@ -130,10 +130,10 @@ const Warning = styled.div`
 
 const avatars = [
   { name: 'nouns', img: Nouns},
-  // { name: 'adam', img: Adam },
+  { name: 'adam', img: Adam },
   { name: 'ash', img: Ash },
-  // { name: 'lucy', img: Lucy },
-  // { name: 'nancy', img: Nancy },
+  { name: 'lucy', img: Lucy },
+  { name: 'nancy', img: Nancy },
 ]
 
 // shuffle the avatars array
@@ -163,6 +163,9 @@ export default function LoginDialog() {
       game.myPlayer.setPlayerName(name)
       game.myPlayer.setPlayerTexture(avatars[avatarIndex].name)
       game.network.readyToConnect()
+
+      window.selectedPlayerName = name;
+
       dispatch(setLoggedIn(true))
     }
   }

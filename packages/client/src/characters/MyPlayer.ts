@@ -39,9 +39,9 @@ export default class MyPlayer extends Player {
   }
 
   setPlayerTexture(texture: string) {
-    // this.playerTexture = texture
-    // this.anims.play(`${this.playerTexture}_idle_down`, true)
-    // phaserEvents.emit(Event.MY_PLAYER_TEXTURE_CHANGE, this.x, this.y, this.anims.currentAnim.key)
+    this.playerTexture = texture
+    this.anims.play(`${this.playerTexture}_idle_down`, true)
+    phaserEvents.emit(Event.MY_PLAYER_TEXTURE_CHANGE, this.x, this.y, this.anims.currentAnim.key)
   }
 
   handleJoystickMovement(movement: JoystickMovement) {
@@ -162,26 +162,26 @@ export default class MyPlayer extends Player {
         // update animation according to velocity and send new location and anim to server
 
         // TODO: add back with animations later
-        // if (vx !== 0 || vy !== 0) network.updatePlayer(this.x, this.y, this.anims.currentAnim.key)
-        // if (vx > 0) {
-        //   this.play(`${this.playerTexture}_run_right`, true)
-        // } else if (vx < 0) {
-        //   this.play(`${this.playerTexture}_run_left`, true)
-        // } else if (vy > 0) {
-        //   this.play(`${this.playerTexture}_run_down`, true)
-        // } else if (vy < 0) {
-        //   this.play(`${this.playerTexture}_run_up`, true)
-        // } else {
-        //   const parts = this.anims.currentAnim.key.split('_')
-        //   parts[1] = 'idle'
-        //   const newAnim = parts.join('_')
-        //   // this prevents idle animation keeps getting called
-        //   if (this.anims.currentAnim.key !== newAnim) {
-        //     this.play(parts.join('_'), true)
-        //     // send new location and anim to server
-        //     network.updatePlayer(this.x, this.y, this.anims.currentAnim.key)
-        //   }
-        // }
+        if (vx !== 0 || vy !== 0) network.updatePlayer(this.x, this.y, this.anims.currentAnim.key)
+        if (vx > 0) {
+          this.play(`${this.playerTexture}_run_right`, true)
+        } else if (vx < 0) {
+          this.play(`${this.playerTexture}_run_left`, true)
+        } else if (vy > 0) {
+          this.play(`${this.playerTexture}_run_down`, true)
+        } else if (vy < 0) {
+          this.play(`${this.playerTexture}_run_up`, true)
+        } else {
+          const parts = this.anims.currentAnim.key.split('_')
+          parts[1] = 'idle'
+          const newAnim = parts.join('_')
+          // this prevents idle animation keeps getting called
+          if (this.anims.currentAnim.key !== newAnim) {
+            this.play(parts.join('_'), true)
+            // send new location and anim to server
+            network.updatePlayer(this.x, this.y, this.anims.currentAnim.key)
+          }
+        }
         break
 
       case PlayerBehavior.SITTING:
@@ -189,7 +189,7 @@ export default class MyPlayer extends Player {
         if (Phaser.Input.Keyboard.JustDown(keyE)) {
           const parts = this.anims.currentAnim.key.split('_')
           parts[1] = 'idle'
-          this.play(parts.join('_'), true)
+          // this.play(parts.join('_'), true)
           this.playerBehavior = PlayerBehavior.IDLE
           this.chairOnSit?.clearDialogBox()
           playerSelector.setPosition(this.x, this.y)
