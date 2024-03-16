@@ -129,11 +129,11 @@ const Warning = styled.div`
 `
 
 const avatars = [
-  { name: 'nouns', img: Nouns},
+  // { name: 'nouns', img: Nouns},
   { name: 'adam', img: Adam },
   { name: 'ash', img: Ash },
   { name: 'lucy', img: Lucy },
-  { name: 'nancy', img: Nancy },
+  // { name: 'nancy', img: Nancy },
 ]
 
 // shuffle the avatars array

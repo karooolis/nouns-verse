@@ -75,17 +75,51 @@ function App() {
           left: 15,
         }}
       >
-        <div>
+        {/* <div>
           Counter: <span>{counter?.value ?? "??"}</span>
-        </div>
+        </div> */}
         <button
           type="button"
+          style={{ marginRight: 10 }}
           onClick={async (event) => {
             event.preventDefault();
             console.log("new counter value:", await increment());
           }}
         >
-          Increment
+          Drink water
+        </button>
+
+        <button
+          type="button"
+          style={{ marginRight: 10 }}
+          onClick={async (event) => {
+            event.preventDefault();
+            console.log("new counter value:", await increment());
+          }}
+        >
+          Meditate
+        </button>
+      
+        <button
+          type="button"
+          style={{ marginRight: 10 }}
+          onClick={async (event) => {
+            event.preventDefault();
+            console.log("new counter value:", await increment());
+          }}
+        >
+          Exercise
+        </button>
+
+        <button
+          type="button"
+          style={{ marginRight: 10 }}
+          onClick={async (event) => {
+            event.preventDefault();
+            console.log("new counter value:", await increment());
+          }}
+        >
+          Focus
         </button>
       </div>
 
