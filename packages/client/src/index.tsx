@@ -31,7 +31,7 @@ setup().then(async (result) => {
           <DynamicContextProvider
             settings={{
               // Find your environment id at https://app.dynamic.xyz/dashboard/developer
-              environmentId: "2762a57b-faa4-41ce-9f16-abff9300e2c9",
+              environmentId: "3d48ee62-4255-4608-8de4-5707123b2b18",
               walletConnectors: [EthereumWalletConnectors],
             }}
           >

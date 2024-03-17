@@ -1,4 +1,4 @@
-import { DynamicContextProvider, DynamicWidget } from '@dynamic-labs/sdk-react-core'
+import { DynamicContextProvider, DynamicWidget, useDynamicContext } from '@dynamic-labs/sdk-react-core'
 
 import React, { useState } from 'react'
 import logo from '../images/logo.png'
@@ -109,6 +109,9 @@ export default function RoomSelectionDialog() {
   const [showSnackbar, setShowSnackbar] = useState(false)
   const lobbyJoined = useAppSelector((state) => state.room.lobbyJoined)
 
+  const dynamicContext = useDynamicContext();
+  console.log(dynamicContext);
+
   const handleConnect = () => {
     if (lobbyJoined) {
       const bootstrap = phaserGame.scene.keys.bootstrap as Bootstrap
@@ -181,13 +184,15 @@ export default function RoomSelectionDialog() {
             </CustomRoomWrapper>
           ) : (
             <>
-              <Title>Welcome to NounsVerse</Title>
+              <Title>Welcome to Nounsverse</Title>
               <Content>
                 <img src={logo} alt="logo" />
                 
                 <DynamicWidget />
 
-                <Button variant="contained" color="secondary" onClick={handleConnect}>
+                <Button variant="contained" color="secondary" onClick={handleConnect} disabled={
+                  !dynamicContext.isAuthenticated
+                }>
                   Connect to public lobby
                 </Button>
                 {/* <Button

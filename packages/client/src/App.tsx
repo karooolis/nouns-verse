@@ -14,6 +14,7 @@ import { useComponentValue } from "@latticexyz/react";
 import { singletonEntity } from "@latticexyz/store-sync/recs";
 
 import { useMUD } from "./MUDContext";
+import { useDynamicContext } from "@dynamic-labs/sdk-react-core";
 
 const Backdrop = styled.div`
   position: absolute;
@@ -26,6 +27,12 @@ function App() {
     components: { Counter },
     systemCalls: { increment },
   } = useMUD();
+
+  // Get account form dynamic wallet
+  // const { account } = useDynamicWallet();
+ const context = useDynamicContext();
+
+ console.log("context", context);
 
   const counter = useComponentValue(Counter, singletonEntity);
 
