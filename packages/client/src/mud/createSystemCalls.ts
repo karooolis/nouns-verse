@@ -31,8 +31,38 @@ export function createSystemCalls(
    *   (https://github.com/latticexyz/mud/blob/main/templates/react/packages/client/src/mud/setupNetwork.ts#L77-L83).
    */
   { worldContract, waitForTransaction }: SetupNetworkResult,
-  { Counter }: ClientComponents
+  { Counter,
+    FocusLastAt,
+    ExerciseLastAt,
+    MeditationLastAt,
+    WaterLastAt,
+  }: ClientComponents
 ) {
+  const focus = async () => {
+    const tx = await worldContract.write.focus();
+    await waitForTransaction(tx);
+    return getComponentValue(FocusLastAt, singletonEntity);
+  };
+
+  const exercise = async () => {
+    const tx = await worldContract.write.exercise();
+    await waitForTransaction(tx);
+    return getComponentValue(ExerciseLastAt, singletonEntity);
+  };
+
+
+  const meditate = async () => {
+    const tx = await worldContract.write.meditate();
+    await waitForTransaction(tx);
+    return getComponentValue(MeditationLastAt, singletonEntity);
+  };
+
+  const water = async () => {
+    const tx = await worldContract.write.water();
+    await waitForTransaction(tx);
+    return getComponentValue(WaterLastAt, singletonEntity);
+  };
+
   const increment = async () => {
     /*
      * Because IncrementSystem
@@ -47,5 +77,9 @@ export function createSystemCalls(
 
   return {
     increment,
+    focus,
+    exercise,
+    meditate,
+    water,
   };
 }

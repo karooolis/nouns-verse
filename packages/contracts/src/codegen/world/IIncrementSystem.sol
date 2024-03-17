@@ -8,5 +8,13 @@ pragma solidity >=0.8.24;
  * @dev This interface is automatically generated from the corresponding system contract. Do not edit manually.
  */
 interface IIncrementSystem {
+  function meditate() external returns (uint256);
+
+  function exercise() external returns (uint256);
+
+  function water() external returns (uint256);
+
+  function focus() external returns (uint256);
+
   function increment() external returns (uint32);
 }

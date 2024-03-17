@@ -108,10 +108,8 @@ export default function RoomSelectionDialog() {
   const [showCreateRoomForm, setShowCreateRoomForm] = useState(false)
   const [showSnackbar, setShowSnackbar] = useState(false)
   const lobbyJoined = useAppSelector((state) => state.room.lobbyJoined)
-
   const dynamicContext = useDynamicContext();
-  console.log(dynamicContext);
-
+  
   const handleConnect = () => {
     if (lobbyJoined) {
       const bootstrap = phaserGame.scene.keys.bootstrap as Bootstrap
